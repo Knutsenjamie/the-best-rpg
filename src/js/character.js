@@ -10,4 +10,10 @@ export default class Character {
     this.gold = gold
     this.inventory = {}
   }
+
+  isDead () {
+    if (this.health <= 0) {
+      return "this character is dead"
+    }
+  }
 }

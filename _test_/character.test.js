@@ -12,3 +12,11 @@ test ('should correctly return a character and their attributes', () => {
   expect(character.gold).toEqual(400)
   expect(character.inventory).toEqual({})
 });
+
+test ('should correctly return a string if health is less than or equal to 0', () => {
+  const character = new Character(0,200,50,50,300,500,2,400,{});
+  expect(character.isDead()).toEqual("this character is dead")
+});
+
+
+
