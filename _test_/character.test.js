@@ -18,5 +18,7 @@ test ('should correctly return a string if health is less than or equal to 0', (
   expect(character.isDead()).toEqual("this character is dead")
 });
 
-
-
+test ('should correctly return a false if health is greater 0', () => {
+  const character = new Character(5,200,50,50,300,500,2,400,{});
+  expect(character.isDead()).toEqual(false);
+});

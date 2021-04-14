@@ -14,6 +14,8 @@ export default class Character {
   isDead () {
     if (this.health <= 0) {
       return "this character is dead"
+    } else {
+      return false;
     }
   }
 }
