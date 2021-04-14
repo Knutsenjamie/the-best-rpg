@@ -33,7 +33,18 @@ export default class Character {
       this.level = 2
       return this.level
     } else {
-      return this.level 
+      return this.level
     }
+  }
+
+  addAttributes () {
+    let characterLevel = this.level
+    for (let index = 2; index <= characterLevel; index +=1) {
+      this.health += 2;
+      this.attack += 2;
+      this.magicka += 2;
+      this.endurance += 2;
+    }
+    return (this.health, this.attack, this.magicka, this.endurance);
   }
 }

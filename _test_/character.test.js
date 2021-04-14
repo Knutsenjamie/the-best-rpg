@@ -47,3 +47,13 @@ test ('should show character as being level 5 if their xp is greater than or equ
   const character = new Character(5,200,50,50,300,700,1,400,{});
   expect(character.levelUp()).toEqual(5)
 });
+
+test ('should add 2 to each player attribute from base level when player reaches level 2', () => {
+  const character = new Character(10,10,10,10,10,200,2,5,{});
+  expect(character.addAttributes()).toEqual(12, 12, 12, 12)
+});
+
+test ('should add 8 to each player attribute from base level when player reaches level 5', () => {
+  const character = new Character(10,10,10,10,10,800,5,5,{});
+  expect(character.addAttributes()).toEqual(18, 18, 18, 18)
+});
