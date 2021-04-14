@@ -56,6 +56,12 @@ export default class Character {
     this.inventory.poisonPotion = "Poison";
     return this.inventory;
   }
+
+  useHealthPotion () {
+    if (this.inventory.healthPotion === "Health Potion") {
+      this.health += 5;
+      this.inventory.healthPotion = undefined;
+      return (this.health, this.inventory.healthPotion);
+    }
+  }
 }
-
-
