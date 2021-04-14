@@ -23,7 +23,27 @@ test ('should correctly return a false if health is greater 0', () => {
   expect(character.isDead()).toEqual(false);
 });
 
+test ('should show characters base level as 1 if xp is anything unspecified', () => {
+  const character = new Character(5,200,50,50,300,0,1,400,{});
+  expect(character.levelUp()).toEqual(1)
+});
+
 test ('should show character as being level 2 if their xp is greater than or equal to 100xp', () => {
   const character = new Character(5,200,50,50,300,100,1,400,{});
   expect(character.levelUp()).toEqual(2)
+});
+
+test ('should show character as being level 3 if their xp is greater than or equal to 300xp', () => {
+  const character = new Character(5,200,50,50,300,300,1,400,{});
+  expect(character.levelUp()).toEqual(3)
+});
+
+test ('should show character as being level 4 if their xp is greater than or equal to 500xp', () => {
+  const character = new Character(5,200,50,50,300,500,1,400,{});
+  expect(character.levelUp()).toEqual(4)
+});
+
+test ('should show character as being level 5 if their xp is greater than or equal to 700xp', () => {
+  const character = new Character(5,200,50,50,300,700,1,400,{});
+  expect(character.levelUp()).toEqual(5)
 });

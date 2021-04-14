@@ -20,9 +20,20 @@ export default class Character {
   }
 
   levelUp () {
-    if (this.xp >= 100) {
+    if (this.xp >= 700) {
+      this.level = 5
+      return this.level
+    } else if (this.xp >= 500) {
+      this.level = 4
+      return this.level
+    } else if (this.xp >= 300) {
+      this.level = 3
+      return this.level
+    } else if (this.xp >= 100) {
       this.level = 2
       return this.level
+    } else {
+      return this.level 
     }
   }
 }
