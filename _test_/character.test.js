@@ -22,3 +22,8 @@ test ('should correctly return a false if health is greater 0', () => {
   const character = new Character(5,200,50,50,300,500,2,400,{});
   expect(character.isDead()).toEqual(false);
 });
+
+test ('should show character as being level 2 if their xp is greater than or equal to 100xp', () => {
+  const character = new Character(5,200,50,50,300,100,1,400,{});
+  expect(character.levelUp()).toEqual(2)
+});

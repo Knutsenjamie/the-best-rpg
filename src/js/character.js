@@ -18,4 +18,11 @@ export default class Character {
       return false;
     }
   }
+
+  levelUp () {
+    if (this.xp >= 100) {
+      this.level = 2
+      return this.level
+    }
+  }
 }
