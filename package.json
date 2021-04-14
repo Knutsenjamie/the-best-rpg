@@ -1,7 +1,7 @@
 {
-  "name": "shape-tracker",
+  "name": "the-best-rpg",
   "version": "1.0.0",
-  "description": "",
+  "description": "The best RPG ever",
   "main": "main.js",
   "scripts": {
     "build": "webpack --mode development",
