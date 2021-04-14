@@ -47,4 +47,15 @@ export default class Character {
     }
     return (this.health, this.attack, this.magicka, this.endurance);
   }
+
+  addItem () {
+    this.inventory.weapon = "Sword";
+    this.inventory.armor = "Leather Armor";
+    this.inventory.healthPotion = "Health Potion";
+    this.inventory.antidotePotion = "Antidote";
+    this.inventory.poisonPotion = "Poison";
+    return this.inventory;
+  }
 }
+
+

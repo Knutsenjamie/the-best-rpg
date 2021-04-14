@@ -57,3 +57,13 @@ test ('should add 8 to each player attribute from base level when player reaches
   const character = new Character(10,10,10,10,10,800,5,5,{});
   expect(character.addAttributes()).toEqual(18, 18, 18, 18)
 });
+
+// test ('should add a key of "weapon" with a value of "sword" to this.inventory', () => {
+//   const character = new Character(10,10,10,10,10,800,5,5,{});
+//   expect(character.addItem()).toEqual({weapon: "Sword"})
+// });
+
+test ('should add a key of "armor" with a value of "Leather Armor" to this.inventory', () => {
+  const character = new Character(10,10,10,10,10,800,5,5,{});
+  expect(character.addItem()).toEqual({weapon: "Sword", armor: "Leather Armor", healthPotion: "Health Potion", antidotePotion: "Antidote", poisonPotion: "Poison"})
+});
