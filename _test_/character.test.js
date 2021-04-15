@@ -22,6 +22,22 @@ beforeEach(() => {
     expect(level1Character.inventory).toEqual({healthPotion: "Health Potion"})
   });
 
+  test ('should show "Mage" attributes if character type is equal to Mage', () => {
+    level1Character.characterType()
+    expect(level1Character.type).toEqual("Mage")
+    expect(level1Character.health).toEqual(100)
+    expect(level1Character.magicAttack).toEqual(20)
+    expect(level1Character.meleeAttack).toEqual(50)
+    expect(level1Character.bowAttack).toEqual(0)
+    expect(level1Character.magicka).toEqual(200)
+    expect(level1Character.endurance).toEqual(100)
+    expect(level1Character.armor).toEqual(150)
+    expect(level1Character.xp).toEqual(0)
+    expect(level1Character.level).toEqual(1)
+    expect(level1Character.gold).toEqual(250)
+    expect(level1Character.inventory).toEqual({healthPotion: "Health Potion"})
+  });
+
   test ('should correctly return true if health is less than or equal to 0', () => {
     let character = new Character("class")
     character.health = 0
@@ -112,19 +128,4 @@ beforeEach(() => {
     expect(level1Character.inventory).toEqual({healthPotion: "Health Potion"})
   });
 
-  test ('should show "Mage" attributes if character type is equal to Mage', () => {
-    level1Character.characterType()
-    expect(level1Character.type).toEqual("Mage")
-    expect(level1Character.health).toEqual(100)
-    expect(level1Character.magicAttack).toEqual(20)
-    expect(level1Character.meleeAttack).toEqual(50)
-    expect(level1Character.bowAttack).toEqual(0)
-    expect(level1Character.magicka).toEqual(200)
-    expect(level1Character.endurance).toEqual(100)
-    expect(level1Character.armor).toEqual(150)
-    expect(level1Character.xp).toEqual(0)
-    expect(level1Character.level).toEqual(1)
-    expect(level1Character.gold).toEqual(250)
-    expect(level1Character.inventory).toEqual({healthPotion: "Health Potion"})
-  });
 });
