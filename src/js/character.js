@@ -57,4 +57,16 @@ export default class Character {
       delete this.inventory.healthPotion;
     }
   }
+
+  usePoisonPotion () {
+    if (this.inventory.poisonPotion === "Poison Potion") {
+      delete this.inventory.poisonPotion;
+    }
+  }
+
+  useAntidotePotion () {
+    if (this.inventory.poisonPotion === "Poison Potion") {
+      delete this.inventory.poisonPotion;
+    }
+  }
 }

@@ -86,4 +86,10 @@ describe('Character', () => {
     expect(character.inventory).toEqual({})
   });
 
+  test ('should remove Poison Potion when used', () => {
+    const character = new Character(10,10,10,10,10,800,5,5,{poisonPotion: "Poison Potion"});
+    character.usePoisonPotion()
+    expect(character.inventory).toEqual({})
+  });
+
 });
