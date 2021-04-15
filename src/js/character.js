@@ -8,12 +8,12 @@ export default class Character {
     this.xp = xp
     this.level = level
     this.gold = gold
-    this.inventory = {}
+    this.inventory = inventory
   }
 
   isDead () {
     if (this.health <= 0) {
-      return "this character is dead"
+      return true
     } else {
       return false;
     }
@@ -22,18 +22,14 @@ export default class Character {
   levelUp () {
     if (this.xp >= 700) {
       this.level = 5
-      return this.level
     } else if (this.xp >= 500) {
       this.level = 4
-      return this.level
     } else if (this.xp >= 300) {
       this.level = 3
-      return this.level
     } else if (this.xp >= 100) {
       this.level = 2
-      return this.level
     } else {
-      return this.level
+      this.level = 1
     }
   }
 
@@ -45,7 +41,6 @@ export default class Character {
       this.magicka += 2;
       this.endurance += 2;
     }
-    return (this.health, this.attack, this.magicka, this.endurance);
   }
 
   addItem () {
@@ -54,14 +49,12 @@ export default class Character {
     this.inventory.healthPotion = "Health Potion";
     this.inventory.antidotePotion = "Antidote";
     this.inventory.poisonPotion = "Poison";
-    return this.inventory;
   }
 
   useHealthPotion () {
     if (this.inventory.healthPotion === "Health Potion") {
       this.health += 5;
-      this.inventory.healthPotion = undefined;
-      return (this.health, this.inventory.healthPotion);
+      delete this.inventory.healthPotion;
     }
   }
 }
