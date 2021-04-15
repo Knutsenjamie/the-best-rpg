@@ -92,4 +92,10 @@ describe('Character', () => {
     expect(character.inventory).toEqual({})
   });
 
+  test ('should remove Antidote when used', () => {
+    const character = new Character(10,10,10,10,10,800,5,5,{antidotePotion: "Antidote"});
+    character.useAntidote()
+    expect(character.inventory).toEqual({})
+  });
+
 });
