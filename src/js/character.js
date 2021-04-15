@@ -1,17 +1,31 @@
 export default class Character {
-  constructor(health, attack, magicka, endurance, armor, xp, level, gold, inventory) {
-    this.health = health
-    this.attack = attack
-    this.magicka = magicka
-    this.endurance = endurance
-    this.armor = armor
-    this.xp = xp
-    this.level = level
-    this.gold = gold
-    this.inventory = inventory
+  constructor(type) {
+    this.type = type
+    this.health = 100
+    this.meleeAttack = 50
+    this.magicAttack = 50
+    this.bowAttack = 50
+    this.magicka = 50
+    this.endurance = 50
+    this.armor = 50
+    this.xp = 0
+    this.level = 1
+    this.gold = 250
+    this.inventory = {healthPotion: "Health Potion"}
   }
 
-  isDead () {
+  characterType() {
+    if (this.type === "Mage") {
+      this.health = 100
+      this.magicAttack = 20
+      this.bowAttack = 0
+      this.magicka = 200
+      this.endurance = 100
+      this.armor = 150
+    }
+  }
+
+  isDead() {
     if (this.health <= 0) {
       return true
     } else {
@@ -19,7 +33,7 @@ export default class Character {
     }
   }
 
-  levelUp () {
+  levelUp() {
     if (this.xp >= 700) {
       this.level = 5
     } else if (this.xp >= 500) {
@@ -33,17 +47,19 @@ export default class Character {
     }
   }
 
-  addAttributes () {
+  addAttributes() {
     let characterLevel = this.level
-    for (let index = 2; index <= characterLevel; index +=1) {
-      this.health += 2;
-      this.attack += 2;
-      this.magicka += 2;
-      this.endurance += 2;
+    for (let index = 2; index <= characterLevel; index += 1) {
+      this.health += 20;
+      this.meleeAttack += 20;
+      this.magicAttack += 20;
+      this.bowAttack += 20;
+      this.magicka += 20;
+      this.endurance += 20;
     }
   }
 
-  addItem () {
+  addItem() {
     this.inventory.weapon = "Sword";
     this.inventory.armor = "Leather Armor";
     this.inventory.healthPotion = "Health Potion";
@@ -51,20 +67,20 @@ export default class Character {
     this.inventory.poisonPotion = "Poison";
   }
 
-  useHealthPotion () {
+  useHealthPotion() {
     if (this.inventory.healthPotion === "Health Potion") {
-      this.health += 5;
+      this.health += 50;
       delete this.inventory.healthPotion;
     }
   }
 
-  usePoisonPotion () {
+  usePoisonPotion() {
     if (this.inventory.poisonPotion === "Poison Potion") {
       delete this.inventory.poisonPotion;
     }
   }
 
-  useAntidote () {
+  useAntidote() {
     if (this.inventory.antidotePotion === "Antidote") {
       delete this.inventory.antidotePotion;
     }
