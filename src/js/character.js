@@ -1,70 +1,88 @@
-export default class Character {
-  constructor(type) {
-    this.type = type
-    this.health = 100
-    this.meleeAttack = 50
-    this.magicAttack = 50
-    this.bowAttack = 50
-    this.magicka = 50
-    this.endurance = 50
-    this.armor = 50
-    this.xp = 0
-    this.level = 1
-    this.gold = 250
-    this.inventory = {healthPotion: "Health Potion"}
-  }
+const createCharacter = () => ({
+  health: 100,
+  meleeAttack: 50,
+  magicAttack: 0,
+  bowAttack: 50,
+  magicka: 50,
+  endurance: 50,
+  armor: 50,
+  xp: 0,
+  level: 1,
+  gold: 250,
+  inventory: {healthPotion: "Health Potion"},
+})
 
-  characterType() {
-    if (this.type === "Mage") {
-      this.health = 100
-      this.meleeAttack = 50
-      this.magicAttack = 20
-      this.bowAttack = 0
-      this.magicka = 200
-      this.endurance = 100
-      this.armor = 150
-    } else if (this.type === "Rogue") {
-      this.health = 100
-      this.meleeAttack = 10
-      this.magicAttack = 0
-      this.bowAttack = 50
-      this.magicka = 0
-      this.endurance = 150
-      this.armor = 200
-    } else if (this.type === "Warrior") {
-      this.health = 100
-      this.meleeAttack = 150
-      this.magicAttack = 0
-      this.bowAttack = 10
-      this.magicka = 0
-      this.endurance = 200
-      this.armor = 250
-    } else if (this.type === "Zombie") {
-      this.health = 200
-      this.meleeAttack = 100
-      this.magicAttack = 0
-      this.bowAttack = 0
-      this.magicka = 25
-      this.endurance = 100
-      this.armor = 250
-    } else if (this.type === "Skeleton") {
-      this.health = 50
-      this.meleeAttack = 25
-      this.magicAttack = 20
-      this.bowAttack = 0
-      this.magicka = 0
-      this.endurance = 10
-      this.armor = 15
-    } else if (this.type === "Orc") {
-      this.health = 300
-      this.meleeAttack = 250
-      this.magicAttack = 200
-      this.bowAttack = 0
-      this.magicka = 200
-      this.endurance = 250
-      this.armor = 300
-    }
-  }
+const createMage = () => ({
+  ...createCharacter(),
+  type: "Mage",
+  meleeAttack: 20,
+  magicAttack: 50,
+  bowAttack: 0,
+  magicka: 200,
+  endurance: 100,
+  armor: 150,
+})
+
+const createRogue = () => ({
+  ...createCharacter(),
+  type: "Rogue",
+  health: 100,
+  meleeAttack: 10,
+  magicAttack: 0,
+  bowAttack: 50,
+  magicka: 0,
+  endurance: 150,
+  armor: 200,
+})
+
+const createWarrior = () => ({
+  ...createCharacter(),
+  type: "Warrior",
+  meleeAttack: 150,
+  magicAttack: 0,
+  bowAttack: 10,
+  magicka: 0,
+  endurance: 200,
+  armor: 250,
+})
+
+const createZombie = () => ({
+  ...createCharacter(),
+  type: "Zombie",
+  health: 200,
+  meleeAttack: 100,
+  magicAttack: 0,
+  bowAttack: 0,
+  magicka: 25,
+  endurance: 100,
+  armor: 250,
+})
+
+const createSkeleton = () => ({
+  ...createCharacter(),
+  type: "Skeleton",
+  health: 50,
+  meleeAttack: 25,
+  magicAttack: 20,
+  bowAttack: 0,
+  magicka: 10,
+  endurance: 10,
+  armor: 15,
+})
+
+const createOrc = () => ({
+  ...createCharacter(),
+  type: "Orc",
+  health: 300,
+  meleeAttack: 250,
+  magicAttack: 200,
+  bowAttack: 0,
+  magicka: 200,
+  endurance: 250,
+  armor: 300,
+})
+
+
 
   isDead() {
     if (this.health <= 0) {
