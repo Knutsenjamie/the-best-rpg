@@ -7,6 +7,7 @@
     "build": "webpack --mode development",
     "start": "npm run build; webpack-dev-server --open --mode development",
     "lint": "eslint src/*.js",
+    "jest": "jest --watchAll",
     "test": "jest --coverage"
   },
   "keywords": [],
@@ -28,6 +29,7 @@
   },
   "dependencies": {
     "bootstrap": "^4.6.0",
+    "eslint-config-airbnb": "^18.2.1",
     "jquery": "^3.6.0",
     "popper.js": "^1.16.1"
   }
