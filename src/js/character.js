@@ -58,7 +58,7 @@ const createZombie = () => ({
   armor: 250,
 })
 
-const createSkeleton = () => ({
+const createSkeleto = () => ({
   ...createCharacter(),
   type: "Skeleton",
   health: 50,
