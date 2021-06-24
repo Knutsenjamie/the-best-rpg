@@ -14,7 +14,7 @@ module.exports = {
     },
   },
   rules: {
-    "arrow-parens": [`error`, `as-needed`],
+    "arrow-parens": [`error`, `always`],
     "comma-dangle": [
       `error`,
       {
