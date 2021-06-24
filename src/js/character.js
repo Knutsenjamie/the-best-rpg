@@ -9,7 +9,20 @@ export const createCharacter = () => ({
   xp: 0,
   level: 1,
   gold: 250,
-  inventory: { healthPotion: `Health Potion` },
+  inventory: {
+    potions: [
+      {
+        name: `Health Potion`,
+        target: `health`,
+        // character[target]: (character.health) = effect(character[target])
+        effect: (health) => health + 50,
+
+      },
+    ],
+    armor: [],
+    weapons: [],
+
+  },
   levelUpGains: {
     health: 20,
     meleeAttack: 20,
@@ -86,9 +99,9 @@ export const createOrc = () => {
   }
 }
 
-export const isDead = character => (character.health <= 0)
+export const isDead = (character) => (character.health <= 0)
 
-export const levelUp = character => {
+export const levelUp = (character) => {
   const { xp } = character
   const level = xp >= 700
     ? 5
@@ -102,13 +115,70 @@ export const levelUp = character => {
   return { ...character, level }
 }
 
-export const addAttributes = character => {
+export const addAttributes = (character) => {
   const { level, levelUpGains } = character
   const newStats = {}
-  Object.Entries(levelUpGains).forEach(levelUpGainEntry => {
+  Object.Entries(levelUpGains).forEach((levelUpGainEntry) => {
     const [stat, gain] = levelUpGainEntry
     newStats[stat] = character[stat] + gain * (level - 1)
   })
 
   return { ...character, ...newStats }
 }
+
+export const addItems = (character) => {
+  const { inventory } = character
+  const newItems = 0
+}
+
+// splice (where, how many to delete, new things to add)
+// findIndex ((something in the array): boolean => something.someProperty === 'whatIWant')
+
+export const useHealthPotion = (character) => {
+  const { inventory } = character
+  const indexOfHealthPotion = inventory.potions.findIndex(
+    (potion) => potion.target === `health`
+  ) // if no health potion => -1
+  console.log(indexOfHealthPotion)
+  const potionWasFound = indexOfHealthPotion !== -1
+  if (potionWasFound) {
+    const foundPotion = inventory.potions[indexOfHealthPotion]
+    const { target, effect } = foundPotion
+    character[target] = effect(character[target])
+    const newPotions = [...inventory.potions]
+    newPotions.splice(indexOfHealthPotion, 1)
+    inventory.potions = newPotions
+    console.log(target, character.target)
+  }
+  character.inventory = { inventory }
+  return character
+}
+
+/*
+
+addItem() {
+  this.inventory.weapon = "Sword";
+  this.inventory.armor = "Leather Armor";
+  this.inventory.healthPotion = "Health Potion";
+  this.inventory.antidotePotion = "Antidote";
+  this.inventory.poisonPotion = "Poison";
+}
+
+useHealthPotion() {
+  if (this.inventory.healthPotion === "Health Potion") {
+    this.health += 50;
+    delete this.inventory.healthPotion;
+  }
+}
+
+usePoisonPotion() {
+  if (this.inventory.poisonPotion === "Poison Potion") {
+    delete this.inventory.poisonPotion;
+  }
+}
+
+useAntidote() {
+  if (this.inventory.antidotePotion === "Antidote") {
+    delete this.inventory.antidotePotion;
+  }
+*/
